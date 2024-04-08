@@ -1,0 +1,24 @@
+{
+    "name": "biohazard/group-chains",
+    "description": "PHP function call group chains",
+    "keywords": ["group chain", "group chains", "call group chain", "call group chains"],
+    "license": "MIT",
+    "require": {
+        "spatie/macroable": "^2.0"
+    },
+
+    "autoload": {
+        "files": [
+            "src/groupChains.php"
+        ],
+        "psr-4": {
+            "Biohazard\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "biohazardhome",
+            "email": "biohazardhome@gmail.com"
+        }
+    ]
+}
