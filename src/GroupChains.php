@@ -20,7 +20,7 @@ class GroupChains {
     }
 
     public function __call(string $method, array $arguments) {
-        $this->methods[$method] = $arguments;
+        $this->methods[] = [$method, $arguments];
 
         if (!static::hasMacro($method)) {
             static::macro($method, function($item, $method, ...$arguments) {
@@ -53,15 +53,15 @@ class GroupChains {
                 }
             }
 
-            foreach ($this->methods as $name => $arguments) {
+            foreach ($this->methods as [$method, $arguments]) {
 
-                $macro = static::$macros[$name];
+                $macro = static::$macros[$method];
 
                 if ($macro instanceof Closure) {
                     $macro = $macro->bindTo($this, static::class);
                 }
 
-                $macro($item, $name, ...$arguments);
+                $macro($item, $method, ...$arguments);
                 $result[] = $this->result;
 
                 $item = $this->result;
