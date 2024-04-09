@@ -1,3 +1,6 @@
+## Install
+`composer require biohazard/group-chains`
+
 ```php
 <?php
 
@@ -12,7 +15,7 @@ $item = [
 ];
 
 function carbon($data) {
-    return (new Carbon($data));
+    return new Carbon($data);
 }
 
 groupChains(
